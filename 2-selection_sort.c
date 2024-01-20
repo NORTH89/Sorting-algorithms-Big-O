@@ -1,27 +1,33 @@
 #include "sort.h"
 
-void selection_sort(int *arr, size_t length)
+void selection_sort(int *array, size_t size)
 {
-	size_t i, minIndex;
-	int temp;
+	size_t i, j, min_index;
 
-	for (i = 0; i < length - 1; i++)
+	if (array == NULL || size <= 1)
 	{
+		return;
+	}
 
-		minIndex = i;
-		for (size_t j = i + 1; j < length; j++)
+	for (i = 0; i < size - 1; i++)
+	{
+		min_index = i;
+
+		for (j = i + 1; j < size; j++)
 		{
-			if (arr[j] < arr[minIndex])
-				minIndex = j;
+			if (array[j] < array[min_index])
+			{
+				min_index = j;
+			}
 		}
 
-		if (minIndex != i)
+		if (min_index != i)
 		{
-			temp = arr[i];
-			arr[i] = arr[minIndex];
-			arr[minIndex] = temp;
-
-			print_array(arr, length);
+			int temp = array[i];
+			array[i] = array[min_index];
+			array[min_index] = temp;
 		}
+
+		print_array(array, size);
 	}
 }
