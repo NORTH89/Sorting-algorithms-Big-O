@@ -1,4 +1,27 @@
 #include "sort.h"
+#include <stdio.h>
+
+/**
+ * _swap - Swaps two elements in an array
+ *
+ * @array: The array to be sorted
+ * @i: The index of the first element
+ * @j: The index of the second element
+ *
+ * Return: Nothing
+ */
+void _swap(int *array, int i, int j)
+{
+	int cmp;
+
+	if (array[i] != array[j])
+	{
+		cmp = array[i];
+		array[i] = array[j];
+		array[j] = cmp;
+	}
+}
+
 /**
  * shell_sort - Sort an array of integers in ascending order
  * using the Shell sort algorithm
@@ -10,27 +33,20 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gap = 1, i, j;
-	int temp;
+	size_t e = 0, a, b;
 
-	while (gap < size / 3)
-		gap = gap * 3 + 1;
+	if (size < 2)
+		return;
 
-	while (gap > 0)
+	while (e <= size / 3)
+		e = e * 3 + 1;
+
+	while (e >= 1)
 	{
-		for (i = gap; i < size; i++)
-		{
-
-			temp = array[i];
-
-			for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
-				array[j] = array[j - gap];
-
-			array[j] = temp;
-		}
-
+		for (a = e; a < size; a++)
+			for (b = a; b >= e && array[b] < array[b - e]; b -= e)
+				_swap(array, b, b - e);
+		e /= 3;
 		print_array(array, size);
-
-		gap /= 3;
 	}
 }
