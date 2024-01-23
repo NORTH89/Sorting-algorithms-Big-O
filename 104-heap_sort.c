@@ -1,11 +1,11 @@
 #include "sort.h"
 
 /**
- * check_tree - check tree for heap sort
- * @array: array
- * @size_init: size of array
- * @i: index
- * Return: Nothing
+ * check_tree - Checks the tree
+ * @array: The array
+ * @size_init: The size of the array
+ * @size: The size of the array
+ * @i: The index
  */
 void check_tree(int *array, size_t size_init, size_t size, size_t i)
 {
