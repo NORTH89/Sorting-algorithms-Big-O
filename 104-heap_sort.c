@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * check_tree - check the tree and fix it
+ * check_tree - check tree for heap sort
  * @array: array
  * @size: size
  * @i: index
