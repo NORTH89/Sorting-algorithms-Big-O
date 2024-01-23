@@ -3,7 +3,7 @@
 /**
  * check_tree - check tree for heap sort
  * @array: array
- * @size: size
+ * @size_init: size of array
  * @i: index
  * Return: Nothing
  */
